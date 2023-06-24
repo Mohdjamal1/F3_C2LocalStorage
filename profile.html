@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Profile</title>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                background-color: black;
+                color: white;
+            }
+
+            .container {
+                display: flex;
+                flex-flow: row wrap;
+            }
+
+            #mynav {
+                display: flex;
+                justify-content: space-between;
+                width: 100vw;
+                padding-left: 25px;
+                padding-right: 20px;
+                font-size: 24px;
+                border-bottom: 2px solid #fff;
+            }
+
+            #links {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .outer-div{
+                display: flex;
+                flex-direction: column;
+                font-size: 40px;
+                margin-left: 80px;
+                margin-top: 90px;
+                gap: 25px;
+                
+            }
+            
+            #logout-btn{
+                width: 226px;
+                height: 58px;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+        </style>
+        
+    </head>
+
+    <body>
+        <div class="container">
+            <nav id="mynav">
+                <h2 id="title">Header</h2>
+                <div id="links">
+                    <a href="index.html">Signup</a>
+                    <a href="">Profile</a>
+                </div>
+            </nav>
+            <div class="outer-div">
+                <div>Profile</div>
+                <div id="profileUser"></div>
+                <div id="profileEmail"></div>
+                <div id="profilePass"></div>
+                <button id="logout-btn" onclick="logOut()">Logout</button>
+            </div>
+        </div>
+        <script>
+            let data = JSON.parse(localStorage.getItem('data'));
+            document.getElementById('profileUser').innerText = `Fullname :${data.name}`;
+            document.getElementById('profileEmail').innerText = `Email :${data.email}`;
+            document.getElementById('profilePass').innerText = `Password :${data.password}`;
+        </script>
+        <script defer src="script.js"></script>
+    </body>
+</html>
